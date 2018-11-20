@@ -1,0 +1,201 @@
+@mixin transform ($v1,$v2){
+    transform: translate($v1,$v2);
+    -webkit-transform: translate($v1,$v2);
+    -moz-transform: translate($v1,$v2);
+    -ms-transform: translate($v1,$v2);
+    -o-transform: translate($v1,$v2);
+}
+@mixin  borderRadius(){
+    border-radius:50px;
+    -webkit-border-radius:50px;
+    -moz-border-radius:50px;
+    -ms-border-radius:50px;
+    -o-border-radius:50px;
+}
+@mixin  nextLvl {
+    position: absolute;
+    top:50%;
+    left: 50%;
+    @include transform(-50%,-50%);
+    @include borderRadius();
+    width: 50%;
+    height: 50%;
+    text-align: center;
+    background-color: rgba(255, 255, 255, 0.733);
+    font-size: 1.3em;
+    font-family: 'Courier New', Courier, monospace;
+  
+}
+//intro
+body,
+html {
+    padding: 0;
+    margin: 0;
+}
+
+main {
+    background-color: rgb(245, 140, 140);
+    height: 100vh;
+}
+
+.intro {
+    background-color: rgb(124, 159, 255);
+    width: 80%;
+    margin: 0 auto;
+    text-align: center;
+    position: relative;
+    top: 10%;
+   @include transform(10%,none)
+    
+}
+
+.intro-head {
+    padding-top: 50px;
+    font-size: 1.5em;
+    font-family: 'Courier New', Courier, monospace;
+    border-bottom: 5px solid black
+}
+
+.choice {
+    padding: 50px;
+    font-family: 'Courier New', Courier, monospace;
+}
+
+.p1-p2 {
+    margin-top: 50px;
+    cursor: pointer;
+    animation-delay: 1s;
+}
+
+.p1-pc {
+    cursor: pointer;
+    animation-delay: 0.7s;
+}
+
+.p1-p2:hover {
+    color: red;
+}
+
+.p1-pc:hover {
+    color: red;
+}
+//for how much
+.for-how-much{
+    position: absolute;
+    top:20%;
+    left: 50%;
+    @include transform(-50%,-20%);
+    font-size: 2em;
+    padding: 10px;
+    background-color:rgb(124, 159, 255);
+    border: 3px solid black;
+    color: black;
+    display: none;
+
+}
+.for-how-much h1{
+    margin: 0;
+}
+//ready
+.ready{
+    position: absolute;
+    @include transform(-50%,-50%);
+    top: 50%;
+    left: 50%;
+    font-size: 5em;
+    color: white;
+    display: none;
+}
+.ready h1{
+    margin: 0;
+}
+
+//next lvl
+.next-lvl{
+ @include nextLvl();
+ display: none;
+}
+.next-lvl h1{
+    position: relative;
+    top: 45%;
+    @include transform(-45%,none);
+    margin: 0;
+}
+
+//next lvl when p1 vs p2
+.p1vsp2-score{
+    @include nextLvl();
+    font-size:1.2em;
+    display:none;
+}
+.p1vsp2-score-center{
+    position: relative;
+    @include transform(-50%,-50%);
+    top: 50%;
+    left: 50%;
+  
+}
+
+
+
+//game screen
+.game-screen {
+    display: flex;
+    text-align: center;
+    height: 100vh;
+    font-size: 3em;
+    display: none;
+}
+
+.p1 {
+    border-right: 3px solid black;
+    width: 50%;
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
+   
+}
+
+.pc-p2 {
+    width: 50%;
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: column; 
+}
+
+.p1 h1 {
+    align-self: center;
+}
+
+.pc-p2 h1{
+    align-self: center;
+}
+//again
+.again{
+    position: absolute;
+    top:80%;
+    left: 50%;
+    @include transform(-50%,-20%);
+    font-family: 'Courier New', Courier, monospace;
+    padding: 10px 20px 10px 20px;
+    background-color:rgb(124, 159, 255);
+    border: 3px solid black;
+    color: black;
+    cursor: pointer;
+    display: none;
+    
+}
+.again h1{
+    margin: 0
+}
+.again:hover{
+background-color: red;
+color: white;
+}
+
+@media (max-width:768px){
+    body{
+        font-size: 0.8em;
+    }
+    
+}
